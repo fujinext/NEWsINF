@@ -22,13 +22,14 @@ public class MyFragment2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
+        Log.d("fujita","MyFragment2_onCreateView_start");
         return inflater.inflate(R.layout.my_fragment2, container, false);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        Log.d("fujita","MyFragment2_onActivityCreated_start");
         textView = (TextView) getActivity().findViewById(R.id.fragment2_textView);
     }
 }

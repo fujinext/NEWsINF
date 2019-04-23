@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ public class MyFragment1 extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.d("fujita","MyFragment1_onCreateView_start");
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -40,13 +42,15 @@ public class MyFragment1 extends ListFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        Log.d("fujita","MyFragment1_onAttach_start");
         listener = (ListSelectionListener) context;
+
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        Log.d("fujita","MyFragment1_onActivityCreated_start");
         setListAdapter(new ArrayAdapter<String>(getActivity(),R.layout.my_fragment1_item,MainActivity.titleArray));
 
         getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);

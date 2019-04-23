@@ -3,6 +3,7 @@ package com.example.newsinf;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity implements ListSelectionListener {
 
@@ -34,9 +35,11 @@ public class MainActivity extends AppCompatActivity implements ListSelectionList
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         // フラグメントを追加
+        Log.d("fujita","fragmentTransaction1.add_start");
         fragmentTransaction.add(R.id.fragment, myFragment1);
 
         // トランザクションを終了（非同期に実行されるため注意）
+        Log.d("fujita","fragmentTransaction1.commit_start");
         fragmentTransaction.commit();
     }
 
@@ -51,12 +54,15 @@ public class MainActivity extends AppCompatActivity implements ListSelectionList
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
         // MyFragment1をMyFragment2に置き換える
+        Log.d("fujita","fragmentTransaction2.replace_start");
         fragmentTransaction.replace(R.id.fragment,myFragment2);
 
         // 「戻る」ボタンを押したときの処理用にFragmentTransactionをbackstackに追加する
+        Log.d("fujita","fragmentTransaction2.addToBackStack_start");
         fragmentTransaction.addToBackStack(null);
 
         // トランザクションを終了（非同期に実行されるため注意）
+        Log.d("fujita","fragmentTransaction2.commit_start");
         fragmentTransaction.commit();
 
         // 念のためトランザクションを強制的に実行する
