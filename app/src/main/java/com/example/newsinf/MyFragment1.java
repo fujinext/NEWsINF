@@ -44,7 +44,6 @@ public class MyFragment1 extends ListFragment {
         super.onAttach(context);
         Log.d("fujita","MyFragment1_onAttach_start");
         listener = (ListSelectionListener) context;
-
     }
 
     @Override
@@ -54,5 +53,8 @@ public class MyFragment1 extends ListFragment {
         setListAdapter(new ArrayAdapter<String>(getActivity(),R.layout.my_fragment1_item,MainActivity.titleArray));
 
         getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
+        // 表示が終わるとここで実行待ちになる
+
     }
 }

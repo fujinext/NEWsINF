@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements ListSelectionList
         fragmentTransaction.replace(R.id.fragment,myFragment2);
 
         // 「戻る」ボタンを押したときの処理用にFragmentTransactionをbackstackに追加する
+        // 保存するフラグメントが現在のものだけの場合は、引数はnullにする
         Log.d("fujita","fragmentTransaction2.addToBackStack_start");
         fragmentTransaction.addToBackStack(null);
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements ListSelectionList
 //        fragmentManager.executePendingTransactions();
         getSupportFragmentManager().executePendingTransactions();
 
+        // ここまででonCreateViewとonActivityCreatedが実行される
         // MyFragment2の表示を書き換える
         myFragment2.setContentAtIndex(index);
     }
